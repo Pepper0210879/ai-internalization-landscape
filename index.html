@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 内化与超级组织厂商全景图</title>
+<style>
+:root{--bg:#f5f6f8;--paper:#fff;--ink:#172033;--muted:#667085;--line:#d8dde7;--accent:#3157d5;--accent-soft:#edf1ff;--good:#147a55}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+header{background:#111827;color:#fff;padding:46px max(24px,calc((100vw - 1320px)/2))}
+header h1{font-size:30px;line-height:1.25;margin:0 0 12px}header p{max-width:900px;color:#cbd5e1;margin:0}
+main{max-width:1320px;margin:0 auto;padding:28px 24px 56px}
+.summary{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:12px;margin-top:-24px}
+.panel,.metric{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px}
+.metric b{display:block;font-size:28px;line-height:1.2;margin-bottom:4px}.metric span,.note{color:var(--muted)}
+.definition{font-size:16px;border-left:4px solid var(--accent);padding-left:15px;margin:0}
+h2{font-size:20px;margin:32px 0 12px}
+.levels{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.level{background:var(--paper);border-top:3px solid var(--accent);padding:14px;border-radius:8px}.level b{display:block;font-size:16px}
+.controls{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:10px;margin-bottom:12px}
+input,select{width:100%;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 12px;border-radius:8px;font:inherit}
+.status{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:10px 0;color:var(--muted)}
+.table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:1680px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid var(--line)}th{position:sticky;top:0;background:#f0f2f6;z-index:1;font-size:12px;letter-spacing:.03em}tbody tr:hover{background:#fafbff}
+.vendor{font-weight:700;white-space:nowrap}.pill,.metric-status{display:inline-block;border-radius:999px;padding:2px 8px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}.lvl{font-weight:700;color:var(--good)}.metrics-cell{min-width:310px}.metrics-cell ul{margin:8px 0;padding-left:18px}.metrics-cell li{margin:3px 0}.metric-status{font-weight:700;white-space:normal}.metric-note{margin:8px 0;color:var(--muted);font-size:12px}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.empty{padding:40px;text-align:center;color:var(--muted)}
+footer{margin-top:20px;color:var(--muted);font-size:12px}
+@media(max-width:900px){.summary{grid-template-columns:1fr 1fr}.summary .panel{grid-column:1/-1}.levels{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}}@media(max-width:560px){header{padding:30px 18px}header h1{font-size:24px}main{padding:18px}.summary,.controls{grid-template-columns:1fr}}
+@page{size:A3 landscape;margin:8mm}
+@media print{body{background:#fff;font-size:10px}main{max-width:none;padding:12px 0}header{padding:18px 0;color:#000;background:#fff;border-bottom:2px solid #000}header p{color:#444}.summary{margin-top:12px}.controls{display:none}.table-wrap{overflow:visible;border-radius:0}table{width:100%;min-width:0;table-layout:fixed;font-size:9px}.metrics-cell{min-width:0;width:auto}th,td{padding:4px;overflow-wrap:anywhere;word-break:normal}th{position:static;font-size:9px}.vendor,.pill{white-space:normal}.metric-note{font-size:9px}.metrics-cell ul{padding-left:12px}.metric-status{padding:2px 4px}thead{display:table-header-group}tr{break-inside:avoid}.status{display:none}}
+</style>
+</head>
+<body>
+<header>
+<h1>AI 内化与超级组织厂商全景图</h1>
+<p>覆盖 36 个厂商、咨询机构与标准框架。重点区分“工具可用”与“组织完成 AI 内化”，并标出定义、成立门槛和不包含项。定义资料基线：2026-09-18；指标研究基线：2026-09-20。</p>
+</header>
+<main>
+<section class="summary">
+<div class="panel"><p class="definition"><strong>工作定义：</strong>AI 内化型超级组织，是以人类负责目标、价值判断和最终责任，以 AI 智能体作为可编排的认知与执行力量，将 AI 写入战略、岗位、流程、决策、知识和治理闭环，从而形成可持续学习、可弹性扩展的人机混合组织。</p></div>
+<div class="metric"><b id="vendorCount">36</b><span>定义与框架</span></div>
+<div class="metric"><b>7</b><span>概念家族</span></div>
+<div class="metric"><b>5</b><span>内化成熟度层级</span></div>
+</section>
+<h2>AI 内化成熟度边界</h2>
+<section class="levels">
+<div class="level"><b>L1 工具可用</b><span class="note">员工可以使用生成式 AI，但未形成组织级采用与标准。</span></div>
+<div class="level"><b>L2 组织采用</b><span class="note">有平台、培训、政策与规模化席位，主要价值仍是个人提效。</span></div>
+<div class="level"><b>L3 流程内化</b><span class="note">AI 接入数据与系统，写入岗位和端到端流程，具备治理与评估。</span></div>
+<div class="level"><b>L4 人机混编</b><span class="note">Agent 进入团队并持续执行；人负责目标、判断、例外与问责。</span></div>
+<div class="level"><b>L5 结果自治</b><span class="note">多智能体围绕业务结果自主协调，组织可以按需扩展认知与执行力。</span></div>
+</section>
+<h2>厂商与框架对照</h2>
+<section class="controls">
+<input id="q" type="search" aria-label="搜索厂商、术语、定义、门槛和数据指标" placeholder="搜索厂商、术语、定义、指标…">
+<select id="region" aria-label="筛选区域"><option value="">全部区域</option></select>
+<select id="family" aria-label="筛选概念家族"><option value="">全部概念家族</option></select>
+<select id="level" aria-label="筛选内化层级"><option value="">全部层级</option></select>
+<select id="evidence" aria-label="筛选证据类型"><option value="">全部证据类型</option></select>
+</section>
+<div class="status"><span id="count" aria-live="polite" aria-atomic="true"></span><span>点击“原始来源”可核验厂商原文</span></div>
+<div class="table-wrap"><table>
+<caption>36项厂商与框架对照：定义、边界、数据指标及其来源性质；可通过上方控件搜索与筛选。</caption>
+<thead><tr><th scope="col">厂商 / 机构</th><th scope="col">原始术语</th><th scope="col">区域</th><th scope="col">家族</th><th scope="col">层级</th><th scope="col">证据</th><th scope="col">数据指标</th><th scope="col">定义摘要</th><th scope="col">成立门槛</th><th scope="col">不包含</th><th scope="col">来源</th></tr></thead>
+<tbody id="rows"></tbody>
+</table><div id="empty" class="empty" hidden>没有匹配结果，请调整筛选条件。</div></div>
+<footer>说明：层级是基于公开定义的分析性归类，不等同于厂商官方评级；“AI 内化”不是已经统一标准化的市场术语，因此本图把相关概念家族放在同一坐标系中比较。</footer>
+</main>
+<script>
+const data=[{"vendor":"Microsoft","term":"Frontier Firm","region":"全球","family":"智能体组织","level":4,"evidence":"A 明确定义","definition":"人类领导、AI运营；以人+Agent混合团队和按需智能为组织基础。","threshold":"Agent进入团队并可运行完整业务流程；人负责方向、例外与判断。","excludes":"只部署Copilot、只有个人提效、仍按原流程逐步交接。","url":"https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born"},{"vendor":"OpenAI","term":"AI-native organization","region":"全球","family":"AI原生","level":4,"evidence":"B 操作模型","definition":"AI同事连接企业系统、并行完成真实工作，并从经验中形成机构记忆。","threshold":"接入系统记录；Agent身份、权限、审计、评估和持续优化同时存在。","excludes":"聊天入口、离线演示、没有执行权限或没有经验改进闭环。","url":"https://openai.com/business/frontier/"},{"vendor":"Salesforce","term":"Agentic Enterprise","region":"全球","family":"智能体组织","level":4,"evidence":"A 明确定义","definition":"人、AI Agent与平台在受治理的业务系统中，基于共享上下文、明确责任和内建信任共同工作。","threshold":"Agent能够决策、运行工作流并在正确节点交还人类；具备数据、编排、审计和问责层。","excludes":"仅回答问题的机器人、传统固定规则自动化、孤立Agent。","url":"https://www.salesforce.com/agentforce/agentic-enterprise/"},{"vendor":"Google Cloud","term":"Agentic Enterprise","region":"全球","family":"智能体组织","level":4,"evidence":"A 明确定义","definition":"企业同时重构内部Agent生产体系、让产品可被外部Agent发现和交易，并参与跨企业规则与标准建设。","threshold":"运营为Agent重构；人类专家与Agent形成学习循环；覆盖企业边界之外的Agent生态。","excludes":"只把Agent用于局部效率提升、产品与外部Agent不可交互。","url":"https://cloud.google.com/transform/building-the-agentic-enterprise-cloud"},{"vendor":"SAP","term":"Autonomous Enterprise","region":"全球","family":"自治企业","level":5,"evidence":"A 明确定义","definition":"利用AI助手、Agent、连接数据和受治理自动化，跨业务域运行并减少人工协调。","threshold":"AI原生架构贯穿体验、流程、基础与平台层；Agent有独立身份、授权与审计。","excludes":"AI能力仍受单一应用、数据孤岛和治理孤岛约束的AI-first状态。","url":"https://architecture.learning.sap.com/docs/north-star-arch/ai-native-northstar-arch/key-terms"},{"vendor":"ServiceNow","term":"AI-native enterprise / Agentic Business","region":"全球","family":"AI原生","level":4,"evidence":"B 操作模型","definition":"AI嵌入每个产品、功能和交互；以数据、工作流、编排和治理支撑自主工作。","threshold":"不是外挂AI；需AI原生工程、定价、体验与技术栈，并让AI在工作流中实际行动。","excludes":"只在聊天中给建议、仅监控不执行、无企业级感知与治理。","url":"https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/brief/servicenow-blueprint-for-agentic-business-the-executive-brief.pdf"},{"vendor":"Workday","term":"Agentic Workforce","region":"全球","family":"智能体组织","level":3,"evidence":"C 技术使能","definition":"将数字Agent视为需要登记、配置、监控、衡量和审计的劳动力对象。","threshold":"跨来源Agent进入统一System of Record，沿用类似人的角色权限与业务流程治理。","excludes":"未登记的影子Agent、只有模型调用而没有劳动力治理。","url":"https://stage.doc.workday.com/admin-guide/en-us/workday-ai/agents/agent-system-of-record/agent-management/setup-considerations--agent-system-of-record.html"},{"vendor":"UiPath","term":"Agentic Enterprise","region":"全球","family":"智能体组织","level":4,"evidence":"B 操作模型","definition":"Agent处理非确定性目标工作，机器人处理确定性规则工作，人承担关键决策，由统一层编排端到端流程。","threshold":"必须有流程级权威编排、状态、恢复、治理和结果责任。","excludes":"Agent数量很多但没人拥有端到端结果；孤立RPA或聊天机器人。","url":"https://www.uipath.com/blog/ai/what-is-agentic-business-orchestration"},{"vendor":"Automation Anywhere","term":"Autonomous Enterprise","region":"全球","family":"自治企业","level":5,"evidence":"B 操作模型","definition":"协作智能成熟度终态：AI在人的目标框架内独立运行，形成高度自治运营。","threshold":"从个人辅助、团队协作、流程协同逐级走向自主运营；人保留目标与边界。","excludes":"单点RPA、只做任务自动化、无人类目标框架的无约束自主。","url":"https://www.automationanywhere.com/sites/default/files/internal-assets/the-capability-maturity-model-for-collaborative-intelligence_en.pdf"},{"vendor":"AWS","term":"AI-first Organization","region":"全球","family":"AI优先","level":3,"evidence":"A 明确定义","definition":"战略、流程、人、基础设施、技能、治理和AI工业化七个维度同步转型。","threshold":"AI写入核心业务目标并重构人机流程、激励与文化；形成可工业化交付能力。","excludes":"零散试验、仅技术部署、AI没有进入绩效和流程设计。","url":"https://aws.amazon.com/blogs/machine-learning/practical-implementation-considerations-to-close-the-ai-value-gap/"},{"vendor":"NVIDIA","term":"Enterprise AI Factory","region":"全球","family":"使能底座","level":3,"evidence":"C 技术使能","definition":"把企业AI从实验工业化为可重复、可治理的智能生产设施，并作为长期Agent运行时和控制面。","threshold":"统一算力、模型、数据连接、AgentOps、安全、可观测与回滚，承载Agent规模化运营。","excludes":"它是基础设施定义，不足以单独证明组织结构和权责已重构。","url":"https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/agentic-ai-in-the-factory.html"},{"vendor":"Oracle","term":"Agentic Enterprise","region":"全球","family":"使能底座","level":3,"evidence":"C 技术使能","definition":"统一企业数据、业务语义与Agent开发，使Agent获得可信洞察并跨Oracle及第三方系统行动。","threshold":"业务数据、语义、工作流和行动被连成一体。","excludes":"更偏平台主张；没有独立、完整的组织设计门槛。","url":"https://www.oracle.com/"},{"vendor":"IBM","term":"AI Native","region":"全球","family":"AI原生","level":3,"evidence":"A 明确定义","definition":"产品、公司或流程从开始就把AI作为核心组成；传统企业若围绕数据和模型全面重构也可成为AI原生。","threshold":"AI从底层塑造架构、决策、体验和系统生命周期，并嵌入负责任AI治理。","excludes":"事后添加AI功能、AI增强但核心仍由旧架构驱动。","url":"https://www.ibm.com/cn-zh/think/topics/ai-native"},{"vendor":"Deloitte","term":"AI-first Company","region":"全球","family":"AI优先","level":4,"evidence":"A 明确定义","definition":"AI成为商业模式、运营模式和决策流程的基础能力，Agent与人形成持续、实时的执行与适应系统。","threshold":"实时自治运营、按结果组织、人机协作、领导者作为系统编排者、劳动力持续进化。","excludes":"优化型工具、固定职能和层级仍决定全部工作流。","url":"https://www.deloitte.com/nl/en/services/consulting/perspectives/becoming-an-ai-first-company.html"},{"vendor":"Deloitte","term":"AI-fueled Organization","region":"全球","family":"AI优先","level":3,"evidence":"A 明确定义","definition":"较早期范式：把AI、机器学习置于业务与IT运营中心，在设计好的数字系统中让人与机器协作。","threshold":"系统性部署到核心流程、数据治理成熟，并可从辅助走向增强乃至自治智能。","excludes":"只有少量用例探索；没有重构核心系统、流程和战略。","url":"https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2019/driving-ai-potential-organizations.html"},{"vendor":"EY","term":"AI-native Enterprise","region":"全球","family":"AI原生","level":4,"evidence":"A 明确定义","definition":"以AI作为组织建筑原则，从零设想客户、劳动力、流程、信任、智能、Agent平台和系统记录。","threshold":"自主系统原生集成，七层相互依赖；重建而非在旧结构上渐进叠加。","excludes":"把AI塞入既有结构、单点工具或只改技术层。","url":"https://www.ey.com/en_gl/newsroom/2025/12/ey-launches-ey-ai-value-blueprints-to-accelerate-businesses-path-toward-ai-native-enterprises"},{"vendor":"KPMG","term":"AI-first Enterprise","region":"全球","family":"AI优先","level":4,"evidence":"A 明确定义","definition":"AI成为员工和客户进入企业系统的交互层，智能系统自治管理核心职能，人转向监督、战略和合规判断。","threshold":"从应用中心转向AI交互中心；核心职能自治、统一数据与AI治理。","excludes":"应用里加AI按钮、只做用例规模化而未改变交互和运营模型。","url":"https://kpmg.com/us/en/media/news/kpmg-openai-strategic-alliance.html"},{"vendor":"PwC","term":"Agentic Enterprise","region":"全球","family":"智能体组织","level":4,"evidence":"B 操作模型","definition":"Agent可推理、规划并跨流程行动；组织围绕决策基础设施、企业上下文、身份与治理重构。","threshold":"每个Agent有身份、每次行动留痕、数据调用受治理；工作流可适应、扩展和演进。","excludes":"Copilot式建议、孤立自动化、没有端到端上下文与问责。","url":"https://www.pwc.com/us/en/services/ai/ai-ready-tech-stack.html"},{"vendor":"McKinsey","term":"Agentic Organization / Superagency","region":"全球","family":"智能体组织","level":4,"evidence":"B 操作模型","definition":"通过人才、运营模型、规模化采用三项根本转变，建立未来的人类—Agent劳动力。","threshold":"重构端到端工作流、组织结构、治理、决策权和责任；领导者与员工持续使用和学习。","excludes":"仅培训提示词、只有技术项目而不改工作与权责。","url":"https://www.mckinsey.com/capabilities/people-and-organization/how-we-help-clients/agentic-organization"},{"vendor":"BCG","term":"AI-first Organization","region":"全球","family":"AI优先","level":4,"evidence":"A 明确定义","definition":"工作不再主要围绕人的岗位与层级，而围绕动态协调工作的Agent系统；Agent执行，人判断和编排。","threshold":"从零重构结构与流程；人设定目标、约束与风险边界，Agent自主选择达成路径。","excludes":"把AI插进旧流程、购买许可证、只实现同样结果的局部提效。","url":"https://www.bcg.com/publications/2026/design-your-company-for-ai-not-ai-for-your-company"},{"vendor":"BCG","term":"Bionic Company","region":"全球","family":"AI优先","level":2,"evidence":"B 操作模型","definition":"AI-first之前的宽口径：围绕一致战略连接人的能力、技术和业务结果。","threshold":"技术与数字化组织相互设计，覆盖战略、运营、体验、人才和新商业模式。","excludes":"不要求Agent成为执行主体，因此不能等同于当下严格的AI内化。","url":"https://web-assets.bcg.com/3f/d8/52a3ac164587a758aebf70dac5e1/bcg-digital-density-eng-print-final.pdf"},{"vendor":"Accenture","term":"Total Enterprise Reinvention / AI-first Reinvention","region":"全球","family":"AI优先","level":3,"evidence":"B 操作模型","definition":"以技术、数据和AI为核心持续重塑企业，跨价值链重构流程、人才、数字核心和责任AI。","threshold":"端到端流程跨职能重构；动态人才、人+Agent协作、可复用能力和持续变革机制。","excludes":"一次性转型项目、只部署生成式AI用例、未形成持续再造能力。","url":"https://www.accenture.com/en/insights/consulting/making-reinvention-real-with-gen-ai"},{"vendor":"Gartner","term":"Autonomous Business","region":"全球","family":"自治企业","level":5,"evidence":"A 明确定义","definition":"利用自学习、自改进、可适应技术作出决策、采取行动并创造新价值，同时提升人的自主性与机器自主性。","threshold":"从任务自动化转向结果自主；覆盖自治运营、增强劳动力、自适应产品、机器客户与可编程经济。","excludes":"只是更高比例自动化；没有自适应、自学习和价值创造自主权。","url":"https://www.gartner.com/en/articles/what-is-autonomous-business"},{"vendor":"Anthropic","term":"Trustworthy Agents（边界）","region":"全球","family":"治理边界","level":4,"evidence":"D 边界参照","definition":"Agent是能够自行决定过程与工具使用方式，通过计划—行动—观察—调整循环完成任务的模型系统。","threshold":"模型、运行框架、工具和环境共同决定自主性；人应保留权限选择和关键控制。","excludes":"固定脚本、只有对话生成；该框架定义Agent，不直接定义组织。","url":"https://www.anthropic.com/research/trustworthy-agents"},{"vendor":"Lenovo 联想","term":"AI原生组织","region":"中国","family":"AI原生","level":4,"evidence":"A 明确定义","definition":"AI深度进入商业模式和工作流程，Agent作为硅基员工，与碳基员工构成高效灵活的人智共创组织。","threshold":"三项特征：人智共创、超级个体涌现、人机共生文化；流程盘点、价值验证和规模推广闭环。","excludes":"只有智能工具采购、AI专家小组或局部自动化。","url":"https://brand.lenovo.com.cn/brand/ppn03515.html?brandType=60&innerKey=&key=&page=4&source=fromwww&type=brand&years="},{"vendor":"腾讯云","term":"超级团队","region":"中国","family":"超级组织","level":3,"evidence":"B 操作模型","definition":"员工与AI协作、人和AI混编开发，知识从内容创作、沉淀到能力复用形成链路。","threshold":"Agent进入真实业务场景；工作台、身份、上下文、构建、连接、分发和治理全生命周期贯通。","excludes":"单个效率助手、没有知识沉淀和业务系统连接。","url":"https://www.tencent.com/zh-cn/tencent-cloud-debuts-productivity-agent-suite-creating-a-new-gateway-to-ai-for-users-and-enterprises/"},{"vendor":"百度","term":"超级组织","region":"中国","family":"超级组织","level":4,"evidence":"A 明确定义","definition":"企业从人与人分工协作转向人与智能体混合编队；最小生产力单元变为一人加一支智能体编队。","threshold":"Agent由被动响应转向主动执行，组织开始按Agent产出和混合编队重构。","excludes":"把聊天机器人当数字员工、只有超级个体而组织机制不变。","url":"https://bkso.baidu.com/item/%E8%B6%85%E7%BA%A7%E4%B8%AA%E4%BD%93/67782351"},{"vendor":"CodeBanana / 出门问问","term":"Super Organization","region":"中国","family":"超级组织","level":4,"evidence":"A 明确定义","definition":"围绕Agent而非纯人际协调构建的新组织结构，按人×Agent扩展，并以并行协作抵抗组织熵增。","threshold":"Agent First、扁平结构、全栈个体、原型驱动、人×Agent协作。","excludes":"把AI当可选助手、串行交接、靠增员和管理层级扩张。","url":"https://docs.codebanana.com/super-org"},{"vendor":"金蝶","term":"AI原生组织","region":"中国","family":"AI原生","level":5,"evidence":"A 明确定义","definition":"以企业AI操作系统为核心，自动把经营战略目标拆成任务，再调用数字员工或人类员工完成。","threshold":"AI参与战略拆解和能力调度；人处于环路，负责战略、复杂判断、文化和价值定义。","excludes":"只在HR或财务部署助手、仍由人工逐层拆任务。","url":"https://www.kingdee.com/resources/articles/1516879468712642081"},{"vendor":"用友","term":"企业AI / AI+X","region":"中国","family":"AI原生","level":4,"evidence":"A 明确定义","definition":"以AI为第一性架构原则设计产品、组织与流程；企业智能体理解语境、调用数据、执行复杂流程并交付可信结果。","threshold":"AI成为生产力本身；数据、业务本体、流程、权限、智能体和治理原生一体。","excludes":"X+AI外挂模式、概率生成但不能可靠执行、单点提效。","url":"https://www.yonyou.com/subject/quanqiuhua/news/6172"},{"vendor":"钉钉","term":"企业AI平台","region":"中国","family":"使能底座","level":2,"evidence":"C 技术使能","definition":"打通模型、数据、技能、应用，提供智能体全生命周期治理并继承组织权限。","threshold":"Agent可嵌入现有流程；具备评测、观测、知识、模型、运营和分权管理。","excludes":"这是平台能力定义，不能单独证明企业已经重构组织权责。","url":"https://www.dingtalk.com/qidian/page-tYTawwGa.html"},{"vendor":"飞书","term":"AI工作平台 / 组织智能","region":"中国","family":"使能底座","level":2,"evidence":"C 技术使能","definition":"把AI深入协作、项目、知识和业务系统，推动组织最佳实践沉淀并形成工作流飞轮。","threshold":"AI读取组织上下文、调用业务系统、推进任务并留下可复用知识。","excludes":"仅全员激活率或调用量高，不足以证明AI内化。","url":"https://project.feishu.cn/home/product-ai"},{"vendor":"华为云","term":"企业智能体 / Agentic Infra","region":"中国","family":"使能底座","level":3,"evidence":"C 技术使能","definition":"通过Agentic基础设施、企业级智能体平台和行业AI梦工厂，把模型、数据、技能、工作流、本体和工具资产化。","threshold":"智能体可私有部署、规模运行，并把行业核心场景沉淀为标准资产。","excludes":"偏技术与生态底座，不构成完整的组织结构定义。","url":"https://www.huaweicloud.com/news/2026/20260605100619686.html"},{"vendor":"Moka","term":"AI原生组织","region":"中国","family":"AI原生","level":3,"evidence":"A 明确定义","definition":"把AI嵌入决策机制、协作流程和人才管理，使其成为组织运转基因，并随操作和决策持续积累集体智能。","threshold":"每次操作沉淀数据、每次决策训练判断；AI能力具有生长性。","excludes":"采购几个AI工具、仅统计使用量。","url":"https://www.mokahr.com/blog/38870.html"},{"vendor":"ISO","term":"ISO/IEC 42001 AI管理体系","region":"标准/研究","family":"治理边界","level":2,"evidence":"D 边界参照","definition":"建立、实施、维护和持续改进组织AI管理体系的国际标准。","threshold":"政策、目标、过程、责任、风险与机会管理形成PDCA闭环。","excludes":"通过认证不等于AI原生或超级组织；标准管治理，不判定组织范式。","url":"https://www.iso.org/standard/42001"},{"vendor":"NIST","term":"AI Risk Management Framework","region":"标准/研究","family":"治理边界","level":2,"evidence":"D 边界参照","definition":"帮助组织把可信性纳入AI设计、开发、使用和评估的自愿风险管理框架。","threshold":"治理、映射、衡量、管理贯穿生命周期并覆盖受影响群体。","excludes":"采用AI RMF不说明AI已进入核心运营，更不说明Agent拥有执行权。","url":"https://www.nist.gov/itl/ai-risk-management-framework"}];
+const metricData=[
+  {
+    "vendor": "Microsoft",
+    "term": "Frontier Firm",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "官方框架：组织阶段：Phase 1 人类+助手、Phase 2 人类-代理团队、Phase 3 人类领导且代理运营（1–3级）",
+      "调查统计（2025年）：已用代理完整自动化工作流或流程的企业占比（官方调研：46%）",
+      "调查统计（2025年）：预计未来5年由团队训练代理的领导者占比（官方调研：41%）",
+      "调查统计（2025年）：预计未来5年由团队管理代理的领导者占比（官方调研：36%）",
+      "调查统计（2025年）：自称企业正在蓬勃发展的员工占比（Frontier Firm 71%，全球样本37%）"
+    ],
+    "metricUrl": "https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born",
+    "metricNote": "官方三阶段是转型路径，不是带权重的成熟度总分；46%、41%、36%、71%均为31国知识工作者调研统计，不能直接当作单家企业达标阈值。"
+  },
+  {
+    "vendor": "OpenAI",
+    "term": "AI-native organization",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "代理式AI输出占比：Codex输出token /（Codex+ChatGPT输出token）（2026年6月官方样本为64%）",
+      "每活跃用户输出token强度：月度输出token / 月活用户数（Frontier组为典型组8.3倍）",
+      "高级能力周渗透率：周活用户中使用Plugins的比例（Frontier 21%，典型组9%）",
+      "技能周渗透率：周活用户中使用Skills的比例（Frontier 19%，典型组3%）",
+      "跨职能扩散速度：自2026年2月以来各职能 Codex 周活用户增长倍数（法律108倍、销售41倍、招聘41倍、营销26倍）"
+    ],
+    "metricUrl": "https://openai.com/signals/enterprise-data/",
+    "metricNote": "数据来自 OpenAI 企业客户的聚合去标识使用数据；Frontier 组按每月每活跃用户输出 token 排序取前10%，典型组为45–55百分位。增长倍数以2026年2月为基期；token 是使用强度代理，不等同业务价值或组织成熟度。"
+  },
+  {
+    "vendor": "Salesforce",
+    "term": "Agentic Enterprise",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "官方等级 L0：固定规则自动化，尚未进入代理式自主推理",
+      "官方等级 L1：信息检索代理，查询企业知识并推荐行动",
+      "官方等级 L2：简单编排、单业务域代理，执行常规任务和低复杂度工作流",
+      "官方等级 L3：多业务域编排代理，执行跨职能端到端业务流程",
+      "官方等级 L4：多代理、多业务域编排，支持代理间协作与持续优化"
+    ],
+    "metricUrl": "https://architect.salesforce.com/docs/architect/fundamentals/guide/agentic-enterprise-it-architecture",
+    "metricNote": "官方模型的 Level 0–4 是能力等级；本表只列各级能力达成项，不增加流程覆盖率或统一百分制。须依官方模型及架构要求判断，不能仅凭代理数量评级。"
+  },
+  {
+    "vendor": "Google Cloud",
+    "term": "Agentic Enterprise",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：代理式端到端流程覆盖率 = 已由代理协同执行的关键流程数 / 关键流程总数",
+      "非官方：代理就绪数据覆盖率 = 可实时访问且含业务上下文的数据域数 / 目标数据域总数",
+      "非官方：任务周期缩短率 =（人工基线时长－代理协同时长）/ 人工基线时长",
+      "非官方：人工升级率 = 需人工接管的代理任务数 / 代理任务总数",
+      "非官方：受治理代理覆盖率 = 已完成测试、身份、权限和审计配置的生产代理数 / 生产代理总数"
+    ],
+    "metricUrl": "https://cloud.google.com/transform/building-the-agentic-enterprise-cloud",
+    "metricNote": "非官方。Google Cloud文章给出目标、数据准备、组织流畅度、人机边界与约3/6/12个月进程描述，但没有正式成熟度等级、权重或计分公式；以上为按其术语边界设计的代理指标。"
+  },
+  {
+    "vendor": "SAP",
+    "term": "Autonomous Enterprise",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：端到端流程自治率 = 无需人工逐步协调即可完成的流程实例数 / 总流程实例数",
+      "非官方：决策前置时间 = 从业务信号产生到受治理行动执行的中位时长",
+      "非官方：可量化价值实现率 = 达到预设业务价值目标的AI流程数 / 已上线AI流程总数",
+      "非官方：审计可追溯覆盖率 = 具备完整决策与行动链路记录的AI执行数 / AI执行总数",
+      "非官方：代理治理覆盖率 = 已登记且配置身份、权限和人工介入规则的代理数 / 生产代理总数"
+    ],
+    "metricUrl": "https://www.sap.com/documents/2026/05/32231cbc-527f-0010-bca6-c68f7e60039b.html",
+    "metricNote": "非官方。SAP提供Autonomous Enterprise Readiness Snapshot检查清单，并公开业务价值、可预测性、可扩展性和治理等原则，但公开落地页未披露可复核的统一评分公式或阈值。"
+  },
+  {
+    "vendor": "ServiceNow",
+    "term": "AI-native enterprise / Agentic Business",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "AI成熟度总分：7个支柱均分 ÷ 5 × 100（0–100）",
+      "成熟度阶段：Evaluator 1–19、Experimenter 20–39、Scaler 40–59、Advancer 60–79；Transformer 须总分≥80且至少同意2项战略转型陈述，否则仍归 Advancer",
+      "AI治理支柱得分（0–5）：监督、法规遵从、信任与透明度子项均值",
+      "AI赋能工作流支柱得分（0–5）：自主多步骤工作流与新型工作流子项均值",
+      "AI价值驱动支柱得分（0–5）：新产品、服务、商业模式和绩效指标子项均值"
+    ],
+    "metricUrl": "https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/resource-center/white-paper/wp-enterprise-ai-maturity-index-2026.pdf",
+    "metricNote": "这是 ServiceNow 2026 Enterprise AI Maturity Index 的官方问卷评分法；须使用原问卷7支柱、子项及战略转型陈述。报告第42页要求 Transformer 同时满足总分≥80与至少同意2项战略转型陈述，不能只按分数判定；不同厂商分数不可直接横比。"
+  },
+  {
+    "vendor": "Workday",
+    "term": "Agentic Workforce",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "代理所有权（ownership）：观测代理归属与责任人",
+      "代理利用情况（utilization）：官方观测项，资料未公开统一单位和计算口径",
+      "代理效率（efficiency）：官方观测项，资料未公开统一单位和计算口径",
+      "价值创造（value creation）：官方观测项，资料未公开统一单位和归因口径",
+      "投资回报跟踪（ROI tracking）：官方观测项，资料未公开统一算法"
+    ],
+    "metricUrl": "https://www.workday.com/content/dam/web/en-us/documents/datasheets/asor-datasheet-enus.pdf",
+    "metricNote": "Workday ASOR 资料第1–2页直接列出以上观测方向；本表保留官方名称，不补自设分母、覆盖率或收益归因公式。官方未给组织成熟度总分，量化实施仍需业务基线。"
+  },
+  {
+    "vendor": "UiPath",
+    "term": "Agentic Enterprise",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "每周/月事件数（Incidents count）：按所选周或月统计流程错误触发的事件总数，单位：次",
+      "每周/月完成实例数（Completed instances）：按所选周或月统计，单位：个实例",
+      "失败最多的前10个元素（Top 10 faulted elements）：元素名称及各元素失败次数，单位：次",
+      "运行时长最长的前10个元素（Top 10 elements by longest duration）：元素名称及运行时长",
+      "非活动实例平均时长（Average duration for inactive instances）：平均运行时间，并按实例状态拆分"
+    ],
+    "metricUrl": "https://docs.uipath.com/maestro/automation-cloud/latest/user-guide/monitoring-dashboard",
+    "metricNote": "2026-09-20 核验 Maestro Monitoring dashboard 的 Metrics 表；仅列文档直接支持的名称、统计周期和单位，时长具体显示单位依看板。本表不补完成率、故障率或 SLA 分母；这些是流程运行指标，不是组织成熟度评分。"
+  },
+  {
+    "vendor": "Automation Anywhere",
+    "term": "Autonomous Enterprise",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "Autonomous：五类状态中的完全自治类；按统一的流程盘点粒度记录数量与分类分布",
+      "Assisted：五类状态中的人机辅助类；按统一的流程盘点粒度记录数量与分类分布",
+      "Automatable：五类状态中的可自动化类；按统一的流程盘点粒度记录数量与分类分布",
+      "Not Worth Automating：五类状态中的不值得自动化类；按统一的流程盘点粒度记录数量与分类分布",
+      "Eliminate：五类状态中的应消除类；按统一的流程盘点粒度记录数量与分类分布"
+    ],
+    "metricUrl": "https://www.automationanywhere.com/company/blog/automation-ai/unleash-human-potential-with-ai",
+    "metricNote": "官方 Autonomous Enterprise Scorecard 给出五类状态。本表只展示分类数量与分布，不声称存在官方比例算法、权重或成熟度阈值；同一轮盘点须固定流程对象粒度，业务职能另行盘点，不混算任务与流程。"
+  },
+  {
+    "vendor": "AWS",
+    "term": "AI-first Organization",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：AI战略对齐覆盖率 = 有明确业务结果与AI目标映射的AI项目数 / AI项目总数",
+      "非官方：人机流程重设计覆盖率 = 已按人机协作重设计的目标流程数 / 目标流程总数",
+      "非官方：AI技能覆盖率 = 完成岗位所需AI培训且通过能力验证的员工数 / 目标员工数",
+      "非官方：受治理部署覆盖率 = 满足安全、治理与伦理要求的生产AI系统数 / 生产AI系统总数",
+      "非官方：AI工业化覆盖率 = 纳入标准化集成、自动化交付和持续运营体系的AI用例数 / 生产AI用例总数"
+    ],
+    "metricUrl": "https://aws.amazon.com/blogs/machine-learning/practical-implementation-considerations-to-close-the-ai-value-gap/",
+    "metricNote": "非官方。AWS 提出战略、流程重设计、文化、基础设施运营、技能人才、安全治理伦理、AI工业化七维框架；以下五项分别映射战略、流程、技能、安全治理伦理、工业化，未穷尽七维。比率、统计对象、通过条件和分母均为分析者建议，不是 AWS 官方量表。"
+  },
+  {
+    "vendor": "NVIDIA",
+    "term": "Enterprise AI Factory",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "首token时延（TTFT）：请求进入至生成首个token的时间",
+      "输出吞吐（TPS）：单位时间生成的输出token数",
+      "端到端时延：用户请求至代理完整响应结束的总时长",
+      "任务完成率（Task completion rate）：代理任务结果 KPI；具体任务口径依工作负载",
+      "故障率与超时率（Failure / timeout rates）：组件及代理运行可靠性 KPI；具体对象与时限依工作负载"
+    ],
+    "metricUrl": "https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/agentic-ai-in-the-factory.html",
+    "metricNote": "NVIDIA官方设计指南将这些定义为AI Factory/AgentOps运行KPI，适用于基础设施与代理工作流性能、质量和可靠性观测；并非组织成熟度总分。"
+  },
+  {
+    "vendor": "Oracle",
+    "term": "Agentic Enterprise",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "Human-to-Agent Ratio（HAR）：官方建议目标 1:50",
+      "Autonomy Level：官方建议目标 L4（Human-on-the-loop）",
+      "Policy Violation Rate：官方建议目标低于 0.1%",
+      "ROI Multiplier（12 months）：官方建议目标 3x"
+    ],
+    "metricUrl": "https://www.oracle.com/webfolder/dms/prod/d2/AITrendsinCloud%20Infrastructure.pdf",
+    "metricNote": "Oracle 报告第13页列出以上 Key Success Metrics 原名与目标；未披露 ROI Multiplier 的具体算法，本表不将其定义为收益成本比，也不补其他分子/分母。目标属于厂商建议，不是独立验证的行业基准。"
+  },
+  {
+    "vendor": "IBM",
+    "term": "AI Native",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：AI 原生核心流程覆盖率 = 移除 AI 后将失去主要用途的核心流程数 / 核心流程总数",
+      "非官方：端到端 AI 原生产品覆盖率 = 从架构、交互到生命周期均以 AI 为核心的产品数 / 产品总数",
+      "非官方：实时智能决策率 = 由 AI 在业务时点实时生成并执行或建议的决策数 / 可测决策总数",
+      "非官方：持续监控覆盖率 = 纳入统一 AI 管理、风险与漂移监控的模型或代理数 / 在产模型或代理总数",
+      "非官方：编排集成密度 = 每条 AI 原生流程平均连接的模型、工具、API 与外部服务数量"
+    ],
+    "metricUrl": "https://www.ibm.com/think/topics/ai-native",
+    "metricNote": "非官方。IBM 给出 AI-native 的移除测试、端到端架构、编排与持续管理边界，但未发布企业成熟度量表或阈值；以上是据其定义设计的代理指标。"
+  },
+  {
+    "vendor": "Deloitte",
+    "term": "AI-first Company",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：实时自治流程覆盖率 = 具备实时数据、反馈闭环与 AI 编排的核心流程数 / 核心流程总数",
+      "非官方：结果型团队覆盖率 = 围绕业务价值横向组织且拥有自身 KPI 的团队数 / 目标团队总数",
+      "非官方：人机协作覆盖率 = 由 AI 代理网络支持的员工数 / 目标员工总数",
+      "非官方：领导编排责任落实率 = 已明确人类目标设定、决策权与例外监督责任的目标业务系统数 / 目标业务系统总数",
+      "非官方：劳动力重构周期 = 价值流变化到完成 build/buy/borrow/bot/bridge 组合调整的中位天数"
+    ],
+    "metricUrl": "https://www.deloitte.com/nl/en/services/consulting/perspectives/becoming-an-ai-first-company.html",
+    "metricNote": "非官方。五项代理指标依次参考实时自治运营、结果型团队、人机协作、领导者作为系统编排者、劳动力持续进化五组件。覆盖率、核算对象和周期均由分析者设计；领导编排的角色落实须另核实责任、决策权与监督证据，不能用治理配置替代领导作用。"
+  },
+  {
+    "vendor": "Deloitte",
+    "term": "AI-fueled Organization",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "官方框架：AI 应用类型全面部署数，范围0–10；调查统计（State of AI 第5版，2022）：Transformers 均值5.9",
+      "官方框架：高度达成的 AI 业务结果数，范围0–17；调查统计（State of AI 第5版，2022）：Transformers 均值6.8",
+      "调查统计（State of AI 第5版，2022）：部署—结果二维分层：Transformers 28%、Pathseekers 26%、Underachievers 17%、Starters 29%",
+      "调查统计（State of AI 第5版，2022）：企业级 AI 战略完全到位率：全体受访者 40%，且 Transformers 为 Starters 的 3 倍以上",
+      "调查统计（State of AI 第5版，2022）：AI 差异化认同率：38%；同期认为 AI 对成功关键的比例为 66%"
+    ],
+    "metricUrl": "https://www.deloitte.com/content/dam/assets-zone3/us/en/docs/industries/technology-media-telecommunications/2024/us-ai-institute-effective-ai-strategy-new.pdf",
+    "metricNote": "官方二维分群以全面部署的 AI 应用类型数和高度达成的结果数为轴；数字为 State of AI 第5版（2022）调查，所链接2024文件为该研究的再发布材料。均值与占比不是跨年份固定阈值。"
+  },
+  {
+    "vendor": "EY",
+    "term": "AI-native Enterprise",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "现代化项目：周期时间（cycle time）",
+      "现代化项目：一次做对率（first-time-right）",
+      "现代化项目：服务成本（cost-to-serve）",
+      "创新项目：激活、留存与附加购买率（activation、retention、attach rate）",
+      "转型项目：贡献利润与学习速度（contribution margin、learning velocity）"
+    ],
+    "metricUrl": "https://www.ey.com/en_us/insights/ai/driving-ai-modernization-innovation-and-transformation",
+    "metricNote": "EY 按现代化、创新、转型三类项目列示成功 KPI；本表保留名称与适用类别，来源未公开这些 KPI 的统一单位、计算公式或相对改善率算法，尤其未定义学习速度的分子/分母。它们不是统一成熟度评分。"
+  },
+  {
+    "vendor": "KPMG",
+    "term": "AI-first Enterprise",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "官方框架：AI 部署阶段分布：未实施、少量 PoC、多项 PoC/少量生产、核心能力战略投资并产生价值、规模化生产并跨用例实现 ROI",
+      "调查统计（2026报告；含2025现状和2026预期）：最高阶段占比：2025 年 31%；受访者对 2026 年末的预期为 79%",
+      "调查统计（2026报告；含2025现状和2026预期）：Agentic AI 投资率：92% 的美国受访组织已在系统中投资构建 agentic AI",
+      "调查统计（2026报告；含2025现状和2026预期）：代理管理技能预期重要率：93% 认为未来五年管理 AI 代理将成为重要技能",
+      "调查统计（2026报告；含2025现状和2026预期）：绩效跟踪与正式技术评估率：70% 经常对照商业计划跟踪技术绩效，85% 经常正式评估和采用新兴技术"
+    ],
+    "metricUrl": "https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/gated/2026/kpmg-us-techsurvey-report.pdf",
+    "metricNote": "官方五阶段部署/价值阶梯来自 KPMG 2026 美国技术调查；31% 与 79% 是实际/预期样本分布，不是通用认证阈值。"
+  },
+  {
+    "vendor": "PwC",
+    "term": "Agentic Enterprise",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：代理身份登记覆盖率 = 已登记唯一身份的在产代理数 / 在产代理总数",
+      "非官方：动作可追溯率 = 可记录、回放并审计的代理动作数 / 代理动作总数",
+      "非官方：治理数据调用率 = 命中受治理且具上下文数据源的代理数据调用数 / 代理数据调用总数",
+      "非官方：风险分级授权覆盖率 = 配置明确自治等级、审批点与权限边界的代理数 / 在产代理总数",
+      "非官方：端到端代理流程覆盖率 = 由多代理跨系统编排的目标流程数 / 目标流程总数"
+    ],
+    "metricUrl": "https://www.pwc.com/us/en/technology/alliances/library/roadmap-for-agentic-commerce.html",
+    "metricNote": "非官方。PwC 要求每个代理有身份、每个动作留痕、每次数据调用命中受治理来源，但未发布 Agentic Enterprise 成熟度量表；以上为企业级代理化建议指标。"
+  },
+  {
+    "vendor": "McKinsey",
+    "term": "Agentic Organization / Superagency",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "AI 成熟自评率：仅 1% 的领导者称 AI 已完全融入工作流并带来显著业务结果",
+      "未来三年增加 AI 投资的企业比例：92%",
+      "人类—代理监督杠杆：2–5 人团队可监督 50–100 个专业代理（早期经验范围）"
+    ],
+    "metricUrl": "https://www.mckinsey.com/capabilities/people-and-organization/our-insights/the-agentic-organization-contours-of-the-next-paradigm-for-the-ai-era",
+    "metricNote": "仅保留该 Agentic Organization 文章直接引用的 AI 完全融入工作流自评、未来投资意向及早期人类—代理监督实践；前两项为调查统计，第三项为早期经验范围。不能把 1%、92% 或监督比例当组织成熟度阈值。"
+  },
+  {
+    "vendor": "BCG",
+    "term": "AI-first Organization",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：五维度证据完备率：分别记录每个维度已具备的约定证据项数 / 该维度应提供证据项数；不跨维度汇总",
+      "非官方：AI 主导端到端流程覆盖率 = AI 主导且由人编排的 E2E 流程数 / 目标 E2E 流程总数",
+      "非官方：AI 价值 KPI 覆盖率 = 已定义并进入领导层评审的 AI 驱动 KPI 数 / 目标 KPI 数",
+      "非官方：复制规模 = 已从首个 E2E 灯塔复制到其他价值流的 AI-first 流程数量",
+      "非官方：人员转型覆盖率 = 已完成 AI 流利度提升或转岗为编排/监督角色的人数 / 受影响人数"
+    ],
+    "metricUrl": "https://media-publications.bcg.com/AI-First-Organization.pdf",
+    "metricNote": "非官方。BCG 官方给出治理与引导、人才与能力、结构与角色、文化与目的、技术/数据/算法五维度及 E2E 复制路径。以下是分析者建议的内部观测项，企业须自定范围、达成条件和基线；不将维度二值化后等权汇总为官方就绪分。"
+  },
+  {
+    "vendor": "BCG",
+    "term": "Bionic Company",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "官方框架：Digital Acceleration Index：36 个类别按 1–4 自评，加权汇总为 0–100 分",
+      "官方框架：成熟度分层：67–100 为 Bionic，44–66 为 building digital proficiency，43 及以下为 digital laggard",
+      "调查统计（2021报告样本）：数字投入强度：约四分之三的 Bionic 公司将超过 15% 的运营费用用于数字计划",
+      "调查统计（2021报告样本）：统一数据模型覆盖：35% 的 Bionic 公司可将超过 25% 的数据映射到统一模型",
+      "调查统计（2021报告样本）：数字岗位覆盖：59% 的 Bionic 公司有超过 20% 员工处于数字岗位"
+    ],
+    "metricUrl": "https://www.bcg.com/publications/2021/digital-acceleration-index",
+    "metricNote": "DAI 是官方数字成熟度口径，样本为 2,296 家、27 个国家、10 个行业；它衡量广义数字/仿生能力，不是纯 AI 成熟度量表。"
+  },
+  {
+    "vendor": "Accenture",
+    "term": "Total Enterprise Reinvention / AI-first Reinvention",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "官方框架：六项运营成熟度能力评分：数据/分析/自动化、AI、领先实践、业务技术协作、人才战略、利益相关者体验",
+      "官方框架：四级运营成熟度：foundational、automated、insight-driven、intelligent",
+      "调查统计（2023研究样本）：Reinventor 识别率：1,700 名高管样本中 9% 的组织具备持续重塑运营并创造 360° 价值的能力",
+      "调查统计（2023研究样本）：运营 Reinventor 价值基准：EBIT 利润率高 1.4 倍、总利益相关者回报高 2.2 倍",
+      "调查统计（2023研究样本）：关键能力采用率：90% 有对齐业务的数据战略与集中安全数据湖；92% 以机器增强几乎全部流程的敏捷人才战略"
+    ],
+    "metricUrl": "https://www.accenture.com/en/insights/operations/reinventing-enterprise-operations-summary",
+    "metricNote": "官方口径是六项能力与四级运营成熟度，并与 Total Enterprise Reinvention 相连；9% 和效果倍数是该研究样本结果，不应当作企业晋级阈值。"
+  },
+  {
+    "vendor": "Gartner",
+    "term": "Autonomous Business",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "预期运营能力将发生中高程度改变的 CEO 比例：80%",
+      "自动化仍限于特定任务的比例：当前 54%，预计 2028 年末降至 13%",
+      "预计采用自学习、自适应 AI 辅助人类决策的 CEO 比例：32%",
+      "预计组织主要在无人工干预下运行的 CEO 比例：27%"
+    ],
+    "metricUrl": "https://www.gartner.com/en/newsroom/press-releases/2026-04-23-gartner-survey-reveals-80-percent-of-ceos-say-artificial-intelligence-will-force-operational-capability-overhauls",
+    "metricNote": "仅采用 Gartner 2026-04-23 发布的 CEO 调查（469名CEO及其他高级企业领导者），保留该来源的运营改变和采用预期统计；未混入另一调查的裁员/ROI结果。预测不能作为 Autonomous Business 单企成熟度评分。"
+  },
+  {
+    "vendor": "Anthropic",
+    "term": "Trustworthy Agents（边界）",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：高风险动作人工控制率 = 需批准或被阻止的高风险动作数 / 高风险动作总数",
+      "非官方：不确定性上报率 = 在歧义或低置信场景主动停下并请求澄清的次数 / 此类场景总数",
+      "非官方：提示注入攻击成功率 = 红队中造成越权或非预期动作的注入样本数 / 注入测试样本总数",
+      "非官方：四层防护覆盖率 = 模型、harness、工具、环境均完成安全评估的代理数 / 在产代理总数",
+      "非官方：透明与隐私事件率 = 无法解释、无法追溯或发生跨上下文敏感信息泄露的事件数 / 每千次代理任务"
+    ],
+    "metricUrl": "https://www.anthropic.com/research/trustworthy-agents",
+    "metricNote": "非官方。Anthropic 明确指出目前没有严格、标准化且独立验证的代理抗提示注入/不确定性基准；以上指标仅依据其五原则和四层结构提出。"
+  },
+  {
+    "vendor": "Lenovo 联想",
+    "term": "AI原生组织",
+    "metricStatus": "官方口径",
+    "metrics": [
+      "官方框架（2025版）：智能化成熟度1–5级；1级单点尝试、2级局部建设、3级混合AI赋能建设、4级智能运营、5级AI原生",
+      "调查统计（2025年样本）：总体成熟度平均分3.19分（满分5分），2024年为2.77分",
+      "调查统计（2025年样本）：四至五级领先企业占比39%",
+      "调查统计（2025年样本）：五级AI原生企业占比9%",
+      "调查统计（报告历史样本）：四至五级领先企业占比2022年16%、2023年22%、2024年22%"
+    ],
+    "metricUrl": "https://mbrand.lenovo.com.cn/brand/ppn03653.html",
+    "metricNote": "阶段名及数据统一采用《中国企业智能化成熟度报告（2025）》版本，报告于2026-02-11发布。3.19分、39%、9%及历史占比均为各年调查样本统计，不是单企阈值，不与后续“分域AI原生/AI全域原生”版本混用。"
+  },
+  {
+    "vendor": "腾讯云",
+    "term": "超级团队",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "模型Token用量：统计企业或空间内模型输入与输出Token消耗",
+      "模型并发用量：统计同一时间段的模型调用并发数量",
+      "Skill使用量：Skill安装次数、调用次数及调用趋势",
+      "连接器与工具用量：收费连接器/工具用量及第三方、公测工具调用次数",
+      "知识库容量使用量及各知识库使用占比"
+    ],
+    "metricUrl": "https://cloud.tencent.com/document/product/1759/127464",
+    "metricNote": "这些是腾讯云智能体开发平台企业/空间资源看板的官方用量统计，只覆盖已接入并可见的数据；它们衡量采用、资源与活跃情况，不是“超级团队”成熟度等级。2026-09-20 复核时该深链抓取失败，当前依据前期采集记录；可另查官方产品PDF资源看板章节，未完成本次独立逐项复核。"
+  },
+  {
+    "vendor": "百度",
+    "term": "超级组织",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "总使用量：指定渠道和时间范围内对应用发起请求的总次数，一问一答计一次",
+      "总使用用户数：指定范围内至少完成一轮对话的去重用户数",
+      "总新增使用用户数：指定范围内至少完成一轮对话的新增用户数",
+      "使用用户留存率 = 下周期仍使用的本周期用户数 / 本周期用户数",
+      "使用用户平均日留存率：指定范围内各日留存率的平均值"
+    ],
+    "metricUrl": "https://cloud.baidu.com/doc/qianfan/s/4mh4stsm2",
+    "metricNote": "指标来自百度千帆已发布Agent/应用的数据分析，按日更新并受发布渠道和时间范围约束；可衡量应用使用与留存，不代表企业是否达到“超级组织”。"
+  },
+  {
+    "vendor": "CodeBanana / 出门问问",
+    "term": "Super Organization",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "AI工具整合比：图像生成工作流由5个工具整合为1个工作台",
+      "年度图像生成支出降幅：官方案例标示50%+",
+      "品牌策略产出时长：3天缩短至15分钟",
+      "团队产出潜在提升倍数：官方案例标示3–5倍",
+      "交付周期缩短率：官方案例标示80%"
+    ],
+    "metricUrl": "https://www.codebanana.com/",
+    "metricNote": "数字据前期记录采自 CodeBanana 官网客户项目与内部验证案例，分别涉及电商设计、品牌运营和项目咨询。2026-09-20 复核时首页抓取失败，尚未找到这些案例的独立深链或保存的页面快照，当前数字待人工复核；仅作案例背景，不是统一成熟度或普适承诺。"
+  },
+  {
+    "vendor": "金蝶",
+    "term": "AI原生组织",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：业务系统连接覆盖率 = 已由AI平台连接的目标业务系统数 / 目标系统总数",
+      "非官方：企业语义评测通过率 = 正确理解企业业务语义的评测项数 / 评测项总数",
+      "非官方：AI任务闭环率 = 由智能体承接并完成回写的任务数 / 交由智能体的任务总数",
+      "非官方：可审计操作覆盖率 = 留存完整权限、过程与结果日志的AI操作数 / AI操作总数",
+      "非官方：可扩展复用覆盖率 = 已沉淀为可复用Skill或智能体的有效场景数 / 已验证有效场景总数"
+    ],
+    "metricUrl": "https://www.kingdee.com/article/2060253892347793410.html",
+    "metricNote": "非官方。五项分别依据金蝶连接系统、理解语义、承接任务、可审计、可扩展的判断问题设计；测试集、成功条件、有效场景和所有分母由企业自定，不能归为金蝶官方公式、权重或阈值。"
+  },
+  {
+    "vendor": "用友",
+    "term": "企业AI / AI+X",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "内部自建AI团队比例：样本中设实验室、跨部门小组、部门AI小组或专员的企业占比为77%",
+      "AI技术采用企业数：AI对话250家、语义生成170家、RPA流程自动化150家",
+      "持续改进与创新能力自评分：3.68分（满分5分）",
+      "业务决策支持度自评分：3.55分（满分5分）",
+      "HR模块AI渗透率：员工自助与服务、招聘与选拔均超过40%，薪酬与福利为20%"
+    ],
+    "metricUrl": "https://www.yonyou.com/subject/gd-rl-szrl/news/4168",
+    "metricNote": "数据来自用友官网发布的2025年AI+企业人才管理调研，样本为10个行业322家企业，且多为企业自评；仅适用于HR场景市场画像，不是AI+X的单企成熟度量表。"
+  },
+  {
+    "vendor": "钉钉",
+    "term": "企业AI平台",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "智能体创建量：DEAP 运营统计项，单位为智能体个数；官方页面未公开统计周期及去重口径",
+      "智能体活跃度：DEAP 运营统计项；官方页面未公开活跃定义、统计周期、单位或分母",
+      "智能体满意度：DEAP 运营统计项；官方页面未公开评分范围、统计周期及计算口径"
+    ],
+    "metricUrl": "https://www.dingtalk.com/qidian/page-MNmNTPj2.html",
+    "metricNote": "只保留 DEAP 官方页面列示的三类运营指标名称，不补自设公式；口径未公开的项目不能直接用于企业比较。2026-09-20 复核时页面抓取失败，以上依据前期采集记录，未完成本次独立复核；页面部分说明注明由通义千问生成，不是成熟度量表。"
+  },
+  {
+    "vendor": "飞书",
+    "term": "AI工作平台 / 组织智能",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "活跃用户数：统计周期内主动与AI应用互动的去重用户数量",
+      "用户满意度 = 1 - 不满意对话数 / 总对话数",
+      "用户反馈率 = 有点赞或点踩的AI回复数 / AI回复总数",
+      "对话平均响应时间：AI应用处理并回复用户请求的平均时长",
+      "技能成功率：用户请求触发技能后成功执行的比例"
+    ],
+    "metricUrl": "https://www.feishu.cn/content/pgdfhrny",
+    "metricNote": "指标来自飞书Aily单个已发布应用的运行分析，可按日、周、月及发布渠道查看；它们衡量应用运营、体验和稳定性，不是组织智能成熟度或跨应用总分。"
+  },
+  {
+    "vendor": "华为云",
+    "term": "企业智能体 / Agentic Infra",
+    "metricStatus": "官方统计 · 非成熟度量表",
+    "metrics": [
+      "响应成功率 = 指定时段内请求成功数 / 请求总数",
+      "模型调用成功率 = 模型调用成功次数 / 模型调用总次数",
+      "模型调用平均耗时 = 模型调用总耗时 / 模型调用总次数",
+      "Token消耗：指定时段内输入Token与输出Token总量",
+      "用户数与会话数：去重用户总数及发生交互的会话总数"
+    ],
+    "metricUrl": "https://support.huaweicloud.com/ops-agentarts/agentarts_14_0010.html",
+    "metricNote": "指标来自AgentArts业务指标页，且仅统计API调用上报的数据，控制台调试和编排预览不计入；反映运行质量、成本和采用，不是Agentic Infra成熟度量表。"
+  },
+  {
+    "vendor": "Moka",
+    "term": "AI原生组织",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：AI人才密度 = 能与AI有效协同的非技术岗人数 / 非技术岗总人数；有效协同判定由企业预先约定",
+      "非官方：AI协同深度分布：按执行、分析、判断、战略四个层次分别记录用例数，不以节点占比替代深度",
+      "非官方：组织记忆沉淀率 = 已沉淀为可复用组织知识的有效协作产物数 / 应沉淀产物总数",
+      "非官方：主动AI覆盖率 = 无需人工逐次触发、可主动推进的AI工作流数 / 已上线AI工作流总数"
+    ],
+    "metricUrl": "https://www.mokahr.com/blog/42099.html",
+    "metricNote": "非官方。Moka 来源提出人才密度、协同深度和组织记忆判断；本表的具体统计与核算方法是分析者建议，不计算组织竞争力乘积。来源中的经验门槛未公开可验证的阈值方法，不能当认证标准。"
+  },
+  {
+    "vendor": "ISO",
+    "term": "ISO/IEC 42001 AI管理体系",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：AIMS范围盘点完整率 = 已登记的范围内AI系统数 / 经组织确认应登记的范围内AI系统总数（参考4.3；不以组织全部系统作分母）",
+      "非官方：AI风险评估覆盖率 = 已完成风险评估的范围内AI系统数 / 范围内应评估AI系统总数（参考6.1.2、8.2）",
+      "非官方：AI影响评估覆盖率 = 已完成影响评估的适用AI用例数 / 范围内应评估AI用例总数（参考6.1.4、8.4）",
+      "非官方：目标监测覆盖率 = 已设监测方法与频率的AI管理目标数 / 已设AI管理目标总数（参考6.2、9.1）",
+      "非官方：审核问题按期关闭率 = 截止期内完成纠正措施的问题数 / 到期审核问题总数（参考9.2、10.2）"
+    ],
+    "metricUrl": "https://www.iso.org/obp/ui/en/#iso:std:iso-iec:42001:ed-1:v1:en",
+    "metricNote": "非官方。以上为参照 ISO/IEC 42001:2023 相应条款设计的代理公式，范围、适用性、计数和期限由组织约定；标准不规定这些比率，不可据此声明符合性或认证。链接为 ISO 官方正文预览入口，需 JavaScript，完整要求须以获授权标准正文核对。"
+  },
+  {
+    "vendor": "NIST",
+    "term": "AI Risk Management Framework",
+    "metricStatus": "非官方 · 建议代理指标",
+    "metrics": [
+      "非官方：责任记录覆盖率 = 已记录风险管理责任人与沟通路径的目标团队数 / 目标团队总数（参考 GOVERN 2.1）",
+      "非官方：风险测量文档覆盖率 = 已记录测量方法、测试集和指标的优先风险数 / 已识别优先风险总数（参考 MEASURE 1.1、2.1）",
+      "非官方：独立评估覆盖率 = 有非一线开发者或独立评估者参与的定期评估数 / 应评估总数（参考 MEASURE 1.3）",
+      "非官方：生产监控覆盖率 = 已持续监控功能与行为的生产AI系统数 / 生产AI系统总数（参考 MEASURE 2.4）",
+      "非官方：可信特征评测覆盖率 = 已完成适用可信特征评测的AI系统数 / 应评测AI系统总数（参考 MEASURE 2.5–2.12）"
+    ],
+    "metricUrl": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+    "metricNote": "非官方。公式由分析者参照 AI RMF 1.0 的相关子类别设计：组织须自定适用性、完成条件、计数对象与统计期；NIST 明确这些行动不是检查清单，不能等权汇总为官方分数、认证或跨组织排名。"
+  }
+];
+const metricKey=x=>x.vendor+"\u0000"+x.term;
+const metricStatuses=new Set(["官方口径","官方统计 · 非成熟度量表","非官方 · 建议代理指标"]);
+function validateMetricData(records,metrics){
+  const dataKeys=new Set(),metricMap=new Map();
+  for(const x of records){
+    const key=metricKey(x);
+    if(dataKeys.has(key))throw new Error("重复主记录："+x.vendor+" — "+x.term);
+    dataKeys.add(key);
+  }
+  for(const x of metrics){
+    const key=metricKey(x);
+    if(metricMap.has(key))throw new Error("重复指标记录："+x.vendor+" — "+x.term);
+    if(!Array.isArray(x.metrics)||x.metrics.length<3||x.metrics.length>5)throw new Error("指标须为3–5项："+x.vendor+" — "+x.term);
+    if(!metricStatuses.has(x.metricStatus))throw new Error("非法指标性质："+x.vendor+" — "+x.term);
+    if(x.metrics.some(s=>typeof s!=="string"||!s.trim()))throw new Error("指标文本为空："+x.vendor);
+    if(typeof x.metricNote!=="string"||!x.metricNote.trim())throw new Error("指标边界说明为空："+x.vendor);
+    if(x.metricStatus==="非官方 · 建议代理指标"&&(x.metrics.some(s=>!s.startsWith("非官方："))||!x.metricNote.includes("非官方")))throw new Error("代理指标缺少非官方标记："+x.vendor);
+    if(!/^https?:\/\//.test(x.metricUrl))throw new Error("非法指标来源："+x.vendor);
+    metricMap.set(key,x);
+  }
+  for(const x of records)if(!metricMap.has(metricKey(x)))throw new Error("缺失指标记录："+x.vendor+" — "+x.term);
+  for(const x of metrics)if(!dataKeys.has(metricKey(x)))throw new Error("孤立指标记录："+x.vendor+" — "+x.term);
+  if(records.length!==36||metricMap.size!==36)throw new Error("主记录和指标映射均须为36项");
+  return metricMap;
+}
+const metricMap=validateMetricData(data,metricData);
+data.forEach(x=>Object.assign(x,metricMap.get(metricKey(x))));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ids=["region","family","level","evidence"];
+function fill(id,values,label){const el=document.getElementById(id);[...new Set(values)].sort((a,b)=>String(a).localeCompare(String(b),"zh-CN")).forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=label?label(v):v;el.appendChild(o)})}
+fill("region",data.map(x=>x.region));fill("family",data.map(x=>x.family));fill("level",data.map(x=>x.level),v=>"L"+v);fill("evidence",data.map(x=>x.evidence));
+function render(){const q=document.getElementById("q").value.trim().toLowerCase();const f=Object.fromEntries(ids.map(id=>[id,document.getElementById(id).value]));const out=data.filter(x=>(!q||Object.values(x).join(" ").toLowerCase().includes(q))&&(!f.region||x.region===f.region)&&(!f.family||x.family===f.family)&&(!f.level||String(x.level)===f.level)&&(!f.evidence||x.evidence===f.evidence));
+document.getElementById("count").textContent="显示 "+out.length+" / "+data.length+" 条";
+document.getElementById("rows").innerHTML=out.map(x=>`<tr><td class="vendor">${esc(x.vendor)}</td><td>${esc(x.term)}</td><td>${esc(x.region)}</td><td><span class="pill">${esc(x.family)}</span></td><td class="lvl">L${x.level}</td><td>${esc(x.evidence)}</td><td class="metrics-cell"><span class="metric-status">${esc(x.metricStatus)}</span><ul>${x.metrics.map(metric=>`<li>${esc(metric)}</li>`).join("")}</ul><div class="metric-note">${esc(x.metricNote)}</div><a href="${esc(x.metricUrl)}" target="_blank" rel="noreferrer">指标来源</a></td><td>${esc(x.definition)}</td><td>${esc(x.threshold)}</td><td>${esc(x.excludes)}</td><td><a href="${esc(x.url)}" target="_blank" rel="noreferrer">原始来源</a></td></tr>`).join("");
+document.getElementById("empty").hidden=out.length>0}
+document.getElementById("q").addEventListener("input",render);ids.forEach(id=>document.getElementById(id).addEventListener("change",render));render();
+</script>
+</body>
+</html>
